@@ -44,4 +44,3 @@ export 'package:liberty_app/screens/projects/all_projects.dart';
 export 'package:liberty_app/screens/onboarding/oboarding_screen.dart';
 export 'package:liberty_app/screens/authentications/sign_in/sign_in.dart';
 export 'package:liberty_app/screens/authentications/create_account/create_account.dart';
-export 'package:liberty_app/screens/authentications/create_account/privacy_policy.dart';

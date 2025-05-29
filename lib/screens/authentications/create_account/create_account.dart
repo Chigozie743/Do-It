@@ -196,7 +196,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           modalNotification(
                               message: 'Account successfully created',
                               context: context,
-                              isError: true,
+                              isError: false,
                             );
 
                           nextScreenReplace(context, const MainPage(pageIndex: 0,));
