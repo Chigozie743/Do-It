@@ -3,6 +3,7 @@ import 'package:liberty_app/constants/utils/exports.dart';
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({
     this.showBody = false,
+    this.showBox = false,
     required this.headText,
     this.secondBodyText,
     this.thirdBodyText,
@@ -17,6 +18,7 @@ class HeaderWidget extends StatelessWidget {
   final String? secondBodyText;
   final bool? showBody;
   final double? width;
+  final bool? showBox;
   final Function()? onBackTap;
 
   @override
@@ -24,25 +26,49 @@ class HeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        InkWell(
-          onTap: () {
-            onBackTap != null ? onBackTap!() : Navigator.pop(context);
-          },
-          child: Container(
-            width: 50.sp,
-            height: 50.sp,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: DoItColors.grey, width: 0.5.sp),
-            ),
-            child: Center(
-              child: Icon(
-                Icons.arrow_back_ios_rounded,
-                color: DoItColors.black,
-                size: 22.sp,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            InkWell(
+              onTap: () {
+                onBackTap != null ? onBackTap!() : Navigator.pop(context);
+              },
+              child: Container(
+                width: 50.sp,
+                height: 50.sp,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: DoItColors.grey, width: 0.5.sp),
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.arrow_back_ios_rounded,
+                    color: DoItColors.black,
+                    size: 22.sp,
+                  ),
+                ),
               ),
             ),
-          ),
+
+            if(showBox == true) ...[
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.r),
+                  border: Border.all(color: DoItColors.blue, width: 1.sp),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.sp, vertical: 4.sp),
+                  child: DoItText(
+                    text: 'Create Project',
+                    fontSize: 12.sp,
+                    textColor: DoItColors.blue,
+                  ),
+                ),
+              ),
+            ] else ...[
+              const SizedBox.shrink(),
+            ]
+          ],
         ),
         SizedBox(height: 20.sp,),
 

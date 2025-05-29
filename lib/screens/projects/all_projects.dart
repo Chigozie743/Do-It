@@ -33,6 +33,7 @@ class _AllProjectsScreenState extends State<AllProjectsScreen> {
                   firstBodyText: ' ',
                   secondBodyText: ' ',
                   thirdBodyText: '',
+                  showBox: true,
                 ),
                 SizedBox(height: 30.sp,),
           
